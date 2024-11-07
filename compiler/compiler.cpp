@@ -98,19 +98,6 @@ bool GLSLCompiler::set_source_from_file(const std::string &path, Stage forced_st
 	return stage != Stage::Unknown;
 }
 
-bool GLSLCompiler::set_source_from_file_multistage(const std::string &path)
-{
-	if (iface.load_text_file(path, source))
-	{
-		LOGE("Failed to load shader: %s\n", path.c_str());
-		return false;
-	}
-
-	source_path = path;
-	stage = Stage::Unknown;
-	return true;
-}
-
 void GLSLCompiler::set_include_directories(const std::vector<std::string> *include_directories_)
 {
 	include_directories = include_directories_;
